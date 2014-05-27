@@ -37,8 +37,9 @@ def BackupDatabase():
     sftp.put(BackupPath+date+".sql", RemotePath+date+".sql")
     sftp.close
     transport.close()
-    print 'Finish'
-        
+#    print 'Finish'
+    deletecmd = "rm -rf " + BackupPath + date + ".sql"
+    os.system(deletecmd)    
 
 class App():
 
